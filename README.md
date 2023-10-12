@@ -128,3 +128,63 @@ To __Create a Branch From Stash__ : (This will create new branch with stash chan
 git stash branch <branch_name> (Creates from latest Stash)
 git stash branch <branch_name> Stash n ((n is specific stash number) Creates from mentioned Stash)
 ```
+
+#### Check Difference in Code in terminal
+
+```sh
+git diff  (To check differences between the working directory and most recent commit.)
+git diff --staged  (To check changes in your staged code in working directory)
+git diff --color-words   (Highlights the differences in color)
+``` 
+
+#### Remove all Changes available in working directory
+
+```sh
+git reset --hard
+or 
+git reset --hard HEAD && git clean -fd  (Also cleans Untracked Changes)
+``` 
+
+#### Remove GIT from packages
+Sometimes We need to remove git from packages which are already initialized or those which are already available in github.
+
+```sh
+rm -rf .git
+``` 
+
+#### Revert Commited Changes
+_For codes you already commited but not yet pushed to remote._
+Delete the most recent commit, keeping the work you've done
+```sh
+git reset --soft HEAD~1
+``` 
+
+Delete the most recent commit, destroying the work you've done
+```sh
+git reset --hard HEAD~1
+``` 
+
+#### Tag Version to your repository
+To tag the changes to deploy (First tag version then push the tag).
+```sh
+git tag v3.2.0  (v<version_number>) then
+git push --tags
+``` 
+
+#### Cherry-pick commits
+Cherry-pick is a command used to select and apply specific individual commits from one branch to another.
+
+To pick the changes form one commit to current branch and use it in your working directory.
+```sh
+git cherry-pick <commit_id> -n
+```
+
+To pick the changes form one commit to current branch and merge it to remote (Be careful using this as this will direcly create commit to remote)
+```sh
+git cherry-pick <commit_id>
+```
+
+To cherry-pick multiple commits 
+```sh
+git cherry-pick <commit_id1> <commit_id2> <commit_id3> 
+```
