@@ -188,3 +188,5 @@ To cherry-pick multiple commits
 ```sh
 git cherry-pick <commit_id1> <commit_id2> <commit_id3> 
 ```
+
+And after you cherry-pick you can push the code to master or if you used -n then you can create a branch and push.
